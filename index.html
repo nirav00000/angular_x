@@ -1,0 +1,56 @@
+<!doctype html>
+<html > 
+  <head>
+    <title>hey is it working?</title>
+    
+    <base href="/">
+    <script src="./angular.js"></script>
+    <script src="./angular-route.js"></script>
+    <script src="./angular-ui-router.js"></script>
+    <script src="./app.js"></script>
+    <script src="./service.js"></script>
+    
+  </head>
+  
+  <body ng-app = "app" >
+    <div ng-controller="BeerCounter">
+      <input type="text"  ng-model="ngmodel_test">
+        <div>
+          <table>
+            <tr>
+                <th ng-click='sortdata("name")'>name</th>
+                <th ng-click='sortdata("surname") '>surname</th>
+                <th ng-click='sortdata("like")'>like</th>
+                <th ng-click='sortdata("dislike")' >dislike</th>
+              </tr>
+              <tbody>
+              <tr ng-repeat="row1 in data1 | filter:ngmodel_test">
+                <td>{{row1.name}}</td>
+                <td>{{row1.surname}}</td>
+                <td>{{row1.like}}</td>
+                <td>{{row1.dislike }}</td>
+                <td><button ng-click='like(row1)'>like</button></td>
+                <td><button ng-click='dislike(row1)'>dislike</button></td>
+              </tr>
+              </tbody>
+          </table>
+        </div>
+
+
+    </div>
+
+    <a ui-sref="first">first</a>
+    <a ui-sref="second">second</a>
+    <a ui-sref="third">third</a>
+
+    <div ui-view></div>
+
+    <!-- code for directive  -->
+    <div ng-controller="Controller">
+      <div my-customer type="name"></div>
+      <div my-customer type="address"></div>
+    </div>
+    <!-- code for directive  -->
+
+  </body>
+</html>
